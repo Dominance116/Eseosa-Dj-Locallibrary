@@ -16,11 +16,11 @@ class Genre(models.Model):
 )
 
 
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.name
 
-def get_absolute_url(self):
-    return reverse("genre-detail", args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse("genre-detail", args=[str(self.id)])
 
 
 class Book(models.Model):
@@ -31,20 +31,20 @@ class Book(models.Model):
     genre=models.ManyToManyField(Genre, help_text="Select a genre for this book")
 
 
-def display_genre(self):
-    return ', '.join(genre.name for genre in self.genre.all () [:3])
+    def display_genre(self):
+        return ', '.join(genre.name for genre in self.genre.all () [:3])
 
-display_genre.short_description="Genre"
+    display_genre.short_description="Genre"
 
 
-def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
 
-def get_absolute_url(self):
-    return reverse("book-detail", args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse("book-detail", args=[str(self.id)])
 
-def Meta(self):
-    ordering=["first name"]
+    def Meta(self):
+        ordering=["first name"]
     
 
 
@@ -75,15 +75,15 @@ class BookInstance(models.Model):
         return f'{self.id} ({self.book.title})' 
     
     
-@property
-def is_overdue (self):
-    """Determine is the book is due back based on the current date and the due back date"""
-    return bool (self.due_back and date.today () > self.due_back)
+    @property
+    def is_overdue (self):
+        """Determine is the book is due back based on the current date and the due back date"""
+        return bool (self.due_back and date.today () > self.due_back)
 
 
-class Meta():
-    ordering=["due_back"]
-    permission= (( "can_mark_returned", "Set book as returned"), )
+    class Meta():
+        ordering=["due_back"]
+        #permission= (( "can_mark_returned", "Set book as returned"), )
 
 
 
@@ -102,8 +102,8 @@ class Author(models.Model):
 
 
     
-class Meta():
-    ordering=["first_name", "last_name"]
+    class Meta():
+        ordering=["first_name", "last_name"]
 
     
 

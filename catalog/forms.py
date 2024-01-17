@@ -49,8 +49,8 @@ class RenewBookModelForm(ModelForm):
         #Remember to always return the cleaned data
         return data
     
-class Meta:
-    model=BookInstance
-    fields=['due_back']
-    labels={'due_back':_("Renewal Date")}
-    help_texts={"due_back":_("Enter a date between now and 4 weeks (default 3).")}
+    class Meta:
+        model=BookInstance
+        fields=['due_back']
+        labels={'due_back':_("Renewal Date")}
+        help_texts={"due_back":_("Enter a date between now and 4 weeks (default 3).")}

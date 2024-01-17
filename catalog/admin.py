@@ -36,15 +36,15 @@ class BookAdmin(admin.ModelAdmin):
 
     inlines=[BookInstanceInline]
     
-"""
+    
     fieldsets= (
-         (None, {
-              "fields":("title")
-         }),
-         ("Book Information", {
-              "fields":("summary", "isbn", "genre")
-         }),
-    )"""
+        (None, {
+            "fields":("title")
+            }),
+        ("Book Information", {
+            "fields":("summary", "isbn", "genre")
+            }),
+    )
 
 
 
